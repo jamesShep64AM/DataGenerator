@@ -83,16 +83,18 @@ containers = ["baskets","bags","wrappers","foil"]
 desserts = ["chocolate ice cream","vanilla ice cream","strawberry icecream","chocolate chips"]
 drinks = ["water bottles","soda syrup","soda water","tea","coffee beans"]
 
+
 #order could have multiple people so we should probally havea serpate generatePersonOrder, and generate order
 #Don't put much effort into making the orders realistic, I dont think it really matters. 
 #Make sure to have a none for each order section 
 
 #generate order, order is dictionary with array menu (key,value) pairs
 def generatePersonOrder():
-    order = {"entre":[],"makeCombo":False,"sweets":[],"sauces":[],"sides":[],"beverages":[]}
+    order = {"entre":[],"makeCombo":[],"sweets":[],"sauces":[],"sides":[],"beverages":[]}
     entreChoice = random.randint(1,4)
     match entreChoice:
         case 1:
+            order["entre"].append(random.choice(list(burgersMenu.items())))
             order["entre"].append(random.choice(list(burgersMenu.items())))
         case 2:
             order["entre"].append(random.choice(list(basketsMenu.items())))
@@ -102,12 +104,14 @@ def generatePersonOrder():
             order["entre"] = []
     
     if(order["entre"]):
-        comboChoice = random.randint(1,10)
-        if(comboChoice <= 8):
-            order["makeCombo"] = True
-    else:
-        order["makeCombo"] = False
-    
+        for _ in range(len(order["entre"])):   
+            print(len(order["entre"])) 
+            comboChoice = random.randint(1,10)
+            if(comboChoice <= 8):
+                order["makeCombo"].append(True)
+            else:
+                order["makeCombo"].append(False)
+        
     sweetsChoice = random.randint(1,10)
     if(sweetsChoice <= 3):
         order["sweets"].append(random.choice(list(shakesNSweetMenu.items())))
@@ -145,7 +149,7 @@ def generatePersonOrder():
             order["beverages"].append(())
     return order
 
-
+print(generatePersonOrder())
 
 
 
