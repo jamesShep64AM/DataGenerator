@@ -87,17 +87,17 @@ drinks = ["water bottles","soda syrup","soda water","tea","coffee beans"]
 #Don't put much effort into making the orders realistic, I dont think it really matters. 
 #Make sure to have a none for each order section 
 def generatePersonOrder():
-    order = {"entre":(),"makeCombo":False,"dessert":(),"sauce":(),"side":(),"beverage":()}
+    order = {"entre":[],"makeCombo":False,"sweets":[],"sauces":[],"sides":[],"beverages":[]}
     entreChoice = random.randint(1,4)
     match entreChoice:
         case 1:
-            order["entre"] = random.choice(list(burgersMenu.items()))
+            order["entre"].append(random.choice(list(burgersMenu.items())))
         case 2:
-            order["entre"] = random.choice(list(basketsMenu.items()))
+            order["entre"].append(random.choice(list(basketsMenu.items())))
         case 3:
-            order["entre"] = random.choice(list(sandwichesMenu.items()))
+            order["entre"].append(random.choice(list(sandwichesMenu.items())))
         case 4:
-            order["entre"] = ()
+            order["entre"] = []
     
     if(order["entre"]):
         comboChoice = random.randint(1,10)
@@ -106,13 +106,44 @@ def generatePersonOrder():
     else:
         order["makeCombo"] = False
     
-    dessertChoice = random.randint(1,10)
-    if(dessertChoice <= 3):
-        order["dessert"] = random.choice(list(shakesNSweetMenu.items()))
+    sweetsChoice = random.randint(1,10)
+    if(sweetsChoice <= 3):
+        order["sweets"].append(random.choice(list(shakesNSweetMenu.items())))
     else:
-        order["dessert"] = ()
+        order["sweets"] = []
     #not finished, does not have sauce, side, or beverage
+    sauceChoice = random.randint(1,3)
+    match sauceChoice:
+        case 1:
+            order["sauces"].append(random.choice(list(saucesMenu.items())))
+        case 2:
+            order["sauces"].append(random.choice(list(saucesMenu.items())))
+            order["sauces"].append(random.choice(list(saucesMenu.items())))
+        case 3:
+            order["sauces"].append(())
+
+    sideChoice = random.randint(1,3)
+    match sideChoice:
+        case 1:
+            order["sides"].append(random.choice(list(sidesMenu.items())))
+        case 2:
+            order["sides"].append(random.choice(list(sidesMenu.items())))
+            order["sides"].append(random.choice(list(sidesMenu.items())))
+        case 3:
+            order["sides"].append(())
+
+    beverageChoice = random.randint(1,3)
+    match beverageChoice:
+        case 1:
+            order["beverages"].append(random.choice(list(beveragesMenu.items())))
+        case 2:
+            order["beverages"].append(random.choice(list(beveragesMenu.items())))
+            order["beverages"].append(random.choice(list(beveragesMenu.items())))
+        case 3:
+            order["beverages"].append(())
     return order
+
+
 
 print(generatePersonOrder())
 
