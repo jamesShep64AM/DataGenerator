@@ -70,3 +70,11 @@ customerNames = [
 managers = ["Zach","Xavier","Victor"]
 
 employees = ["Quency","Wyat","Emily","Ryan","Trist","Yorn","Uno"]
+
+#Need to create functions to create orders with all of the values. Use random.choice
+#Probaly need to generate different order modifications
+
+#Need a function to generate times for the orders, weight for more during certain times
+
+#Add function for generating deliveries. Probally do this is a seperate .csv file
+
