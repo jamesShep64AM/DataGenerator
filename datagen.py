@@ -83,12 +83,19 @@ containers = ["baskets","bags","wrappers","foil"]
 desserts = ["chocolate ice cream","vanilla ice cream","strawberry icecream","chocolate chips"]
 drinks = ["water bottles","soda syrup","soda water","tea","coffee beans"]
 
+#todo:
+#   Write orders to file
+#       ~figure out the format to do this
+#   Generate modifications for the orders 
+#       ~How are we going to do modifications in the data base
+
 
 #order could have multiple people so we should probally havea serpate generatePersonOrder, and generate order
 #Don't put much effort into making the orders realistic, I dont think it really matters. 
 #Make sure to have a none for each order section 
 
-#generate order, order is dictionary with array menu (key,value) pairs
+#generate order, order is dictionary with array menu (key,value) pairs. 
+#Each key has value of an array that can have none,one, or multiple items
 def generatePersonOrder():
     order = {"entre":[],"makeCombo":[],"sweets":[],"sauces":[],"sides":[],"beverages":[]}
     entreChoice = random.randint(1,4)
@@ -117,7 +124,7 @@ def generatePersonOrder():
         order["sweets"].append(random.choice(list(shakesNSweetMenu.items())))
     else:
         order["sweets"] = []
-    #not finished, does not have sauce, side, or beverage
+
     sauceChoice = random.randint(1,3)
     match sauceChoice:
         case 1:
