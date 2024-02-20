@@ -71,6 +71,19 @@ managers = ["Zach","Xavier","Victor"]
 
 employees = ["Quency","Wyat","Emily","Ryan","Trist","Yorn","Uno"]
 
+#items for stock
+sauces = ["ketchup","mustard","ranch"]
+cookingIngredients = ["oil","butter","flour","salt","eggs","milk","sugar"]
+seasonings = ["peper","paprika"]
+meats = ["chicken tenders","ground beef","steak"]
+toppings = ["bacon","american cheese","shredded cheese","lettuce"]
+breads = ["burger bun","sanwich loaf"]
+sides = ["potatoes","onions","chips"]
+containers = ["baskets","bags","wrappers","foil"]
+desserts = ["chocolate ice cream","vanilla ice cream","strawberry icecream","chocolate chips"]
+drinks = ["water bottles","soda syrup","soda water","tea","coffee beans"]
+
+
 #Need to create functions to create orders with all of the values. Use random.choice
 #Probaly need to generate different order modifications
 
