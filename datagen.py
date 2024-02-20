@@ -86,6 +86,8 @@ drinks = ["water bottles","soda syrup","soda water","tea","coffee beans"]
 #order could have multiple people so we should probally havea serpate generatePersonOrder, and generate order
 #Don't put much effort into making the orders realistic, I dont think it really matters. 
 #Make sure to have a none for each order section 
+
+#generate order, order is dictionary with array menu (key,value) pairs
 def generatePersonOrder():
     order = {"entre":[],"makeCombo":False,"sweets":[],"sauces":[],"sides":[],"beverages":[]}
     entreChoice = random.randint(1,4)
@@ -145,10 +147,8 @@ def generatePersonOrder():
 
 
 
-print(generatePersonOrder())
 
 
-#Need to create functions to create orders with all of the values. Use random.choice
 #Probaly need to generate different order modifications
 
 #Need a function to generate times for the orders, weight for more during certain times
