@@ -1,5 +1,5 @@
 import random
-f = open("data.csv","w")
+f = open("orders.csv","w")
 
 burgersMenu = {"Rev's Burger":5.59,
            "Double Stach Cheese Burger":8.79,
@@ -8,7 +8,7 @@ burgersMenu = {"Rev's Burger":5.59,
 
 burgersComboPrice = 1.90
 
-baskets = {"Three Tender Basket":6.79,
+basketsMenu = {"Three Tender Basket":6.79,
            "Four Steak Finger Basket":8.39}
 
 basketsComboPrice = 1.10
@@ -82,6 +82,39 @@ sides = ["potatoes","onions","chips"]
 containers = ["baskets","bags","wrappers","foil"]
 desserts = ["chocolate ice cream","vanilla ice cream","strawberry icecream","chocolate chips"]
 drinks = ["water bottles","soda syrup","soda water","tea","coffee beans"]
+
+#order could have multiple people so we should probally havea serpate generatePersonOrder, and generate order
+#Don't put much effort into making the orders realistic, I dont think it really matters. 
+#Make sure to have a none for each order section 
+def generatePersonOrder(file):
+    order = {"entre","makeCombo","dessert","sauce","side","beverage"}
+    entreChoice = random.randint(1,4)
+    match entreChoice:
+        case 1:
+            order["entre"] = random.choice(burgersMenu)
+        case 2:
+            order["entre"] = random.choice(basketsMenu)
+        case 3:
+            order["entre"] = random.choice(sandwichesMenu)
+        case 4:
+            order.update({"entre",None})
+    
+    if(order["entre"]):
+        comboChoice = random.randint(1,10)
+        if(comboChoice <= 8):
+            order["makeCombo"] = True
+    else:
+        order["makeCombo"] = False
+    
+    dessertChoice = random.randint(1,10)
+    if(dessertChoice <= 3):
+        order["dessert"] = random.choice(desserts)
+    else:
+        order["dessert"] = None
+    #not finished, does not have sauce, side, or beverage
+    return order
+
+
 
 
 #Need to create functions to create orders with all of the values. Use random.choice
