@@ -86,18 +86,18 @@ drinks = ["water bottles","soda syrup","soda water","tea","coffee beans"]
 #order could have multiple people so we should probally havea serpate generatePersonOrder, and generate order
 #Don't put much effort into making the orders realistic, I dont think it really matters. 
 #Make sure to have a none for each order section 
-def generatePersonOrder(file):
-    order = {"entre","makeCombo","dessert","sauce","side","beverage"}
+def generatePersonOrder():
+    order = {"entre":(),"makeCombo":False,"dessert":(),"sauce":(),"side":(),"beverage":()}
     entreChoice = random.randint(1,4)
     match entreChoice:
         case 1:
-            order["entre"] = random.choice(burgersMenu)
+            order["entre"] = random.choice(list(burgersMenu.items()))
         case 2:
-            order["entre"] = random.choice(basketsMenu)
+            order["entre"] = random.choice(list(basketsMenu.items()))
         case 3:
-            order["entre"] = random.choice(sandwichesMenu)
+            order["entre"] = random.choice(list(sandwichesMenu.items()))
         case 4:
-            order.update({"entre",None})
+            order["entre"] = ()
     
     if(order["entre"]):
         comboChoice = random.randint(1,10)
@@ -108,13 +108,13 @@ def generatePersonOrder(file):
     
     dessertChoice = random.randint(1,10)
     if(dessertChoice <= 3):
-        order["dessert"] = random.choice(desserts)
+        order["dessert"] = random.choice(list(shakesNSweetMenu.items()))
     else:
-        order["dessert"] = None
+        order["dessert"] = ()
     #not finished, does not have sauce, side, or beverage
     return order
 
-
+print(generatePersonOrder())
 
 
 #Need to create functions to create orders with all of the values. Use random.choice
