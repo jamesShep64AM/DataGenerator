@@ -131,7 +131,7 @@ def generatePersonOrder():
             order["sauces"].append(random.choice(saucesMenu))
             order["sauces"].append(random.choice(saucesMenu))
         case 3:
-            order["sauces"].append(())
+            order["sauces"].append("")
 
     sideChoice = random.randint(1,3)
     match sideChoice:
@@ -141,17 +141,17 @@ def generatePersonOrder():
             order["sides"].append(random.choice(sidesMenu))
             order["sides"].append(random.choice(sidesMenu))
         case 3:
-            order["sides"].append(())
+            order["sides"].append("")
 
     beverageChoice = random.randint(1,3)
     match beverageChoice:
         case 1:
-            order["beverages"].append(random.choice(list(beveragesMenu.items())))
+            order["beverages"].append(random.choice(beveragesMenu))
         case 2:
-            order["beverages"].append(random.choice(list(beveragesMenu.items())))
-            order["beverages"].append(random.choice(list(beveragesMenu.items())))
+            order["beverages"].append(random.choice(random.choice(beveragesMenu)))
+            order["beverages"].append(random.choice(random.choice(beveragesMenu)))
         case 3:
-            order["beverages"].append(())
+            order["beverages"].append("")
     return order
 
 print(generatePersonOrder())
