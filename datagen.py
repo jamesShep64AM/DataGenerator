@@ -1,48 +1,46 @@
 import random
 f = open("orders.csv","w")
 
-burgersMenu = {"Rev's Burger":5.59,
-           "Double Stach Cheese Burger":8.79,
-           "Classic Burger": 5.49,
-           "Bacon Cheeseburger":6.99}
+burgersMenu = ["Rev's Burger",
+           "Double Stach Cheese Burger",
+           "Classic Burger",
+           "Bacon Cheeseburger"]
 
 burgersComboPrice = 1.90
 
-basketsMenu = {"Three Tender Basket":6.79,
-           "Four Steak Finger Basket":8.39}
+basketsMenu = ["Three Tender Basket",
+           "Four Steak Finger Basket"]
 
 basketsComboPrice = 1.10
 
-sandwichesMenu = {"Gig 'em Patty Melt": 6.29,
-              "Howdy Spicy Ranch Chicken Strip":6.99,
-              "Classic Crispy Chicket Tender Sandwich":5.79,
-              "Grilled Chicken Tender Sandwich":5.79,
-              "Grilled Cheese":3.49}
+sandwichesMenu = ["Gig 'em Patty Melt",
+              "Howdy Spicy Ranch Chicken Strip",
+              "Classic Crispy Chicket Tender Sandwich",
+              "Grilled Chicken Tender Sandwich",
+              "Grilled Cheese"]
 
-gigPattyMeltComboPrice = 1.80
-sandwichesComboPrice = 1.90
 
-shakesNSweetMenu = {"Aggie Shake":3.14,
-                "Double Scoop Ice Cream Cup":3.79,
-                "Chocolate Chip Chunk Cookie":2.11,
-                "Chocolate Fudge Brownie":2.11}
+shakesNSweetMenu = {"Aggie Shake",
+                "Double Scoop Ice Cream Cup",
+                "Chocolate Chip Chunk Cookie",
+                "Chocolate Fudge Brownie"}
 
-saucesMenu = {"Gig 'Em Sauce":.69,
-          "Buffalo":.69,
-          "Ranch":.69,
-          "BBQ Sauce":.69,
-          "Honey Mustard":.69,
-          "Spicy Ranch":.69}
+saucesMenu = ["Gig 'Em Sauce",
+          "Buffalo",
+          "Ranch",
+          "BBQ Sauce",
+          "Honey Mustard",
+          "Spicy Ranch"]
 
-sidesMenu = {"Seasoned Fries":1.5,
-         "Tator Tots":1.5,
-         "Onion Rings":1.98,
-         "Kettle Chips":1.25}
+sidesMenu = ["Seasoned Fries",
+         "Tator Tots",
+         "Onion Rings",
+         "Kettle Chips"]
 
-beveragesMenu = {"Medium Fountain Drink":2.25,
-             "Large Fountain Drink":2.45,
-             "Drip Coffee":2.29,
-             "Cold Brew":3.65}
+beveragesMenu = ["Medium Fountain Drink",
+             "Large Fountain Drink",
+             "Drip Coffee",
+             "Cold Brew"]
 
 customerNames = [
     "Liam",
@@ -101,12 +99,12 @@ def generatePersonOrder():
     entreChoice = random.randint(1,4)
     match entreChoice:
         case 1:
-            order["entre"].append(random.choice(list(burgersMenu.items())))
-            order["entre"].append(random.choice(list(burgersMenu.items())))
+            order["entre"].append(random.choice(burgersMenu))
+            order["entre"].append(random.choice(burgersMenu))
         case 2:
-            order["entre"].append(random.choice(list(basketsMenu.items())))
+            order["entre"].append(random.choice(burgersMenu))
         case 3:
-            order["entre"].append(random.choice(list(sandwichesMenu.items())))
+            order["entre"].append(random.choice(burgersMenu))
         case 4:
             order["entre"] = []
     
@@ -121,27 +119,27 @@ def generatePersonOrder():
         
     sweetsChoice = random.randint(1,10)
     if(sweetsChoice <= 3):
-        order["sweets"].append(random.choice(list(shakesNSweetMenu.items())))
+        order["sweets"].append(random.choice(shakesNSweetMenu))
     else:
         order["sweets"] = []
 
     sauceChoice = random.randint(1,3)
     match sauceChoice:
         case 1:
-            order["sauces"].append(random.choice(list(saucesMenu.items())))
+            order["sauces"].append(random.choice(saucesMenu))
         case 2:
-            order["sauces"].append(random.choice(list(saucesMenu.items())))
-            order["sauces"].append(random.choice(list(saucesMenu.items())))
+            order["sauces"].append(random.choice(saucesMenu))
+            order["sauces"].append(random.choice(saucesMenu))
         case 3:
             order["sauces"].append(())
 
     sideChoice = random.randint(1,3)
     match sideChoice:
         case 1:
-            order["sides"].append(random.choice(list(sidesMenu.items())))
+            order["sides"].append(random.choice(sidesMenu))
         case 2:
-            order["sides"].append(random.choice(list(sidesMenu.items())))
-            order["sides"].append(random.choice(list(sidesMenu.items())))
+            order["sides"].append(random.choice(sidesMenu))
+            order["sides"].append(random.choice(sidesMenu))
         case 3:
             order["sides"].append(())
 
